@@ -13,13 +13,11 @@
   <div class="auth-wrap">
 
     <aside class="auth-side">
-      <div class="auth-brand">
-        <div class="auth-logo">E</div>
-        <span>ETECH Admin</span>
-      </div>
+      <a href="/" class="auth-brand">
+        <img src="{{ asset('images/logo.jpeg') }}" alt="Etech Power Generator" class="auth-logo-img auth-logo-img--side">
+      </a>
       <div class="auth-side-copy">
         <h2>Kelola konten Wawasan dengan mudah.</h2>
-        <p>Tulis, atur, dan terbitkan artikel untuk website Etech dari satu tempat.</p>
       </div>
       <small>&copy; {{ date('Y') }} Etech</small>
     </aside>
@@ -27,8 +25,7 @@
     <main class="auth-main">
       <div class="auth-card">
         <div class="auth-brand auth-brand-mobile">
-          <div class="auth-logo">E</div>
-          <span>ETECH Admin</span>
+          <img src="{{ asset('images/logo.jpeg') }}" alt="Etech Power Generator" class="auth-logo-img">
         </div>
         @yield('content')
       </div>

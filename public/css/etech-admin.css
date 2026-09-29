@@ -227,3 +227,21 @@ tbody tr:hover{background:#FBF3E8;}
 }
 .side-logout svg{flex-shrink:0;}
 .side-logout:hover{background:#FBEAE5;color:var(--danger);}
+
+.auth-logo-img {
+  display: block;
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.auth-logo-img--side {
+  height: 52px;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  .auth-logo-img { height: 40px; }
+}

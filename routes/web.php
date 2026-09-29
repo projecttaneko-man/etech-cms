@@ -7,7 +7,14 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+// Halaman utama: belum login -> ke login, sudah login -> ke dashboard admin.
+// Nama 'blog.index' dipertahankan supaya view lama yang memanggilnya tidak error.
+Route::get('/', function () {
+    return auth()->check()
+        ? redirect()->route('admin.dashboard')
+        : redirect()->route('login');
+})->name('blog.index');
+
 Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog.category');
 
 Route::middleware('auth')->group(function () {
@@ -27,4 +34,5 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 
 require __DIR__.'/auth.php';
 
+// Catch-all harus paling bawah agar tidak menimpa /login, /admin, dll.
 Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
